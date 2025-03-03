@@ -1,0 +1,44 @@
+---
+import Header from "../components/Header.astro";
+// Supports weights 100-900
+import "@fontsource-variable/montserrat";
+// import "@fontsource/poppins";
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header />
+    <slot />
+  </body>
+</html>
+<style is:global>
+  :root {
+    color-scheme: light;
+  }
+  html {
+    font-family: "Montserrat Variable", sans-serif;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: #f6f6f6;
+    width: 100%;
+    min-height: 100vh;
+    min-width: 277px;
+  }
+</style>
